@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>AppEngine and Templates</title>
+
+    <meta name="description" content="Introduction to AppEngine applications.">
+    <meta name="author" content="Luis Ibanez">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="revealjs/css/reveal.min.css">
+    <link rel="stylesheet" href="revealjs/css/theme/sky.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="revealjs/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+            <h1>Templates</h1>
+            <h3>Use in AppEngine</h3>
+            <p>
+                <small>Created by <a href="https://github.com/luisibanez">Luis Ibanez</a> / <a href="http://twitter.com/luisibanez">@luisibanez</a></small>
+            </p>
+        </section>
+
+        <section>
+            <h1>AppEngine</h1>
+            <h1>Introduction</h1>
+        </section>
+
+        <section>
+            <h1>Hello</h1>
+            <h1>World!</h1>
+        </section>
+
+        <section>
+            <h3>main.py</h3>
+            <div class="fragment">
+            <pre><code class="language-python">
+import webapp2
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Hello World!')
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+app = webapp2.WSGIApplication([
+    ('/', MainHandler)
+], debug=True)
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>app.yaml</h3>
+            <div class="fragment">
+            <pre><code class="language-yaml">
+runtime: python27
+api_version: 1
+threadsafe: true
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-yaml">
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: .*
+  script: main.app
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-yaml">
+libraries:
+  - name: webapp2
+    versions: "2.5.2"
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>main.py</h3>
+            <div class="fragment">
+            <pre><code class="language-python">
+import webapp2
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Hello World!')
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+class CountHandler(webapp2.RequestHandler):
+    def get(self):
+        for i in range(1, 21):
+          self.response.write('Hello %d <br>' % i)
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+app = webapp2.WSGIApplication([
+    ('/', MainHandler),
+    ('/count', CountHandler)
+], debug=True)
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h1>Exercise!</h1>
+        </section>
+
+        <section>
+            <h2>Download</h2>
+            <h2>and Run</h2>
+            <h2>exercise-02</h2>
+        </section>
+
+        <section>
+            <h3>Closer Look</h3>
+            <div class="fragment">
+            <p>The content of "self.response.write"</p>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Hello World!')
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <p>Is really HTML</p>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('<h1>Hello World!</h1>')
+           </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Not</h2>
+            <h2>a good way</h2>
+        </section>
+
+        <section>
+            <h2>to write</h2>
+            <h2>a full HTML page</h2>
+        </section>
+
+        <section>
+            <h1>END</h1>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="revealjs/lib/js/head.min.js"></script>
+    <script src="revealjs/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
