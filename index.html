@@ -77,37 +77,45 @@
         </section>
 
         <section>
-            <h3>main.py</h3>
-            <div class="fragment">
-            <pre><code class="language-python">
-import webapp2
-            </code></pre>
-            </div>
-            <div class="fragment">
-            <pre><code class="language-python">
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello World!')
-            </code></pre>
-            </div>
-            <div class="fragment">
-            <pre><code class="language-python">
-app = webapp2.WSGIApplication([
-    ('/', MainHandler)
-], debug=True)
-            </code></pre>
-            </div>
+            <h3>Launch</h3>
+            <p>GoogleAppEngineLauncher</p>
+        </section>
+
+        <section>
+            <h3>You Do</h3>
+            <ul>
+                <li>File -> New Application
+                <ul>
+                    <li>Application ID: hello-world
+                    <li>Runtime: Python 2.7
+                    <li>Admin Port: 8000
+                    <li>Port: 8080
+                </ul>
+                <li>Click -> Create
+            </ul>
+        </section>
+
+        <section>
+            <p>Several files</p>
+            <p>will be</p>
+            <p>created...</p>
         </section>
 
         <section>
             <h3>app.yaml</h3>
             <div class="fragment">
             <pre><code class="language-yaml">
+application: appengine-practice
+version: 1
 runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: yes
             </code></pre>
             </div>
+        </section>
+
+        <section>
+            <h3>app.yaml</h3>
             <div class="fragment">
             <pre><code class="language-yaml">
 handlers:
@@ -139,9 +147,87 @@ import webapp2
             <pre><code class="language-python">
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello World!')
+        self.response.write('Hello world!')
             </code></pre>
             </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+app = webapp2.WSGIApplication([
+    ('/', MainHandler)
+], debug=True)
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <p>Launch Your App</p>
+            <p>from</p>
+            <p>GoogleAppEngineLauncher</p>
+        </section>
+
+        <section>
+            <h3>You Do</h3>
+            <p>In GoogleAppEngineLauncher</p>
+            <ul>
+                <li>Click on the App row
+                <li>Click on the "Run" green button
+            </ul>
+        </section>
+
+        <section>
+            <h3>You Do</h3>
+            <p>In Chrome Web Browser</p>
+            <ul>
+                <li><a href="http://localhost:8080">http://localhost:8080</a>
+                <li>[ENTER]
+            </ul>
+        </section>
+
+        <section>
+            <h1>Exercise!</h1>
+        </section>
+
+        <section>
+            <h3>You Do</h3>
+            <p>Modify the Code</p>
+            <ul>
+                <li>In main.py replace
+                <ul>
+                    <li>"Hello world!"
+                    <li>with
+                    <li>"Hello New York!"
+                </ul>
+                <li>Refresh the web browser page
+            </ul>
+        </section>
+
+        <section>
+            <h1>Exercise!</h1>
+        </section>
+
+        <section>
+            <p>Adding</p>
+            <p>a second Handler...</p>
+        </section>
+
+        <section>
+            <h3>main.py</h3>
+            <div class="fragment">
+            <pre><code class="language-python">
+import webapp2
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Hello world!')
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>main.py</h3>
             <div class="fragment">
             <pre><code class="language-python">
 class CountHandler(webapp2.RequestHandler):
@@ -158,6 +244,20 @@ app = webapp2.WSGIApplication([
 ], debug=True)
             </code></pre>
             </div>
+        </section>
+
+        <section>
+            <h3>You Do</h3>
+            <p>Modify the Code</p>
+            <ul>
+                <li>In main.py
+                <ul>
+                    <li>Add CountHandler
+                    <li>Add /count route
+                </ul>
+                <li>Refresh the page <a href="http://localhost:8080">http://localhost:8080</a>
+                <li>Open the page <a href="http://localhost:8080/count">http://localhost:8080/count</a>
+            </ul>
         </section>
 
         <section>
@@ -179,7 +279,7 @@ app = webapp2.WSGIApplication([
             <pre><code class="language-python">
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello World!')
+        self.response.write('Hello world!')
             </code></pre>
             </div>
             <div class="fragment">
@@ -189,7 +289,7 @@ class MainHandler(webapp2.RequestHandler):
             <pre><code class="language-python">
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('<h1>Hello World!</h1>')
+        self.response.write('<h1>Hello world!</h1>')
            </code></pre>
             </div>
         </section>
