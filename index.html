@@ -489,6 +489,123 @@ app = webapp2.WSGIApplication([
         </section>
 
         <section>
+            <h3>Logging</h3>
+            <h3>Server</h3>
+            <h3>Messages</h3>
+        </section>
+
+        <section>
+            <h3>main.py</h3>
+            <div class="fragment">
+            <pre><code class="language-python">
+import webapp2
+import logging
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        logging.info('Printing hello message')
+        self.response.write('Hello world!')
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+app = webapp2.WSGIApplication([
+    ('/', MainHandler)
+], debug=True)
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+          <img src="images/GoogleAppEngineLauncher05.png" alt="screenshot of GoogleAppEngineLauncher log with logger message">
+        </section>
+
+        <section>
+            <h3>Partner</h3>
+            <h3>Programming</h3>
+            <h3>Logging</h3>
+        </section>
+
+        <section>
+            <h3>main.py</h3>
+            <div class="fragment">
+            <pre><code class="language-python">
+def is_prime(n):
+    """A simple (but inefficient) check to see whether a number is prime."""
+    for possible_factor in range(1, n):
+        if n % possible_factor == 0:
+            return False
+    return True
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        n = 100
+        if is_prime(n):
+            self.response.write('%d is prime' % n)
+        else:
+            self.response.write('%d is not prime' % n)
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>You Do</h3>
+            <p>Debug the Code</p>
+            <ul>
+                <li>Try multiple values of 'n'
+                <li>Introduce logging
+                <li>Identify the error
+                <li>Fix it
+            </ul>
+        </section>
+
+        <section>
+          <img src="images/GoogleAppEngineLauncher06.png" alt="screenshot of GoogleAppEngineLauncher logs for prime number exercise">
+        </section>
+
+        <section>
+            <p>After</p>
+            <p>introducing</p>
+            <p>logging...</p>
+        </section>
+
+        <section>
+            <h3>main.py</h3>
+            <div class="fragment">
+            <pre><code class="language-python">
+import webapp2
+import logging
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+def is_prime(n):
+    """A simple (but inefficient) check to see whether a number is prime."""
+    for possible_factor in range(1, n):
+        logging.info('trying %d' % possible_factor)
+        if n % possible_factor == 0:
+            return False
+    return True
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <p>After</p>
+            <p>fixing it...</p>
+        </section>
+
+        <section>
+          <img src="images/GoogleAppEngineLauncher07.png" alt="screenshot of GoogleAppEngineLauncher logs for prime number exercise fixed">
+        </section>
+
+        <section>
             <h1>END</h1>
         </section>
 
