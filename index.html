@@ -265,7 +265,7 @@ app = webapp2.WSGIApplication([
                 <li>In main.py
                 <ul>
                     <li>Add CountHandler
-                    <li>Add /count route
+                    <li>Add '/count' route
                 </ul>
                 <li>Refresh the page <a href="http://localhost:8080">http://localhost:8080</a>
                 <li>Open the page <a href="http://localhost:8080/count">http://localhost:8080/count</a>
@@ -277,43 +277,17 @@ app = webapp2.WSGIApplication([
         </section>
 
         <section>
-            <h2>Download</h2>
-            <h2>and Run</h2>
-            <h2>exercise-02</h2>
-        </section>
-
-        <section>
-            <h3>Closer Look</h3>
-            <div class="fragment">
-            <p>The content of "self.response.write"</p>
-            </div>
-            <div class="fragment">
-            <pre><code class="language-python">
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello world!')
-            </code></pre>
-            </div>
-            <div class="fragment">
-            <p>Is really HTML</p>
-            </div>
-            <div class="fragment">
-            <pre><code class="language-python">
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('<h1>Hello world!</h1>')
-           </code></pre>
-            </div>
-        </section>
-
-        <section>
-            <h2>Not</h2>
-            <h2>a good way</h2>
-        </section>
-
-        <section>
-            <h2>to write</h2>
-            <h2>a full HTML page</h2>
+            <h3>You Do</h3>
+            <p>Modify the Code</p>
+            <ul>
+                <li>In main.py
+                <ul>
+                    <li>Add a Handler to print a Goodbye message
+                    <li>Add '/goodbye' route
+                </ul>
+                <li>Refresh the page <a href="http://localhost:8080">http://localhost:8080</a>
+                <li>Open the page <a href="http://localhost:8080/goodbye">http://localhost:8080/goodbye</a>
+            </ul>
         </section>
 
         <section>
