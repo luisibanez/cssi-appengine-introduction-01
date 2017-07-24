@@ -439,6 +439,54 @@ handlers:
             </ul>
         </section>
 
+        <section>
+            <h2>Logging and</h2>
+            <h2>Debugging</h2>
+        </section>
+
+        <section>
+            <h3>main.py</h3>
+            <p>remove a comma...</p>
+            <div class="fragment">
+            <pre><code class="language-python">
+app = webapp2.WSGIApplication([
+    ('/', MainHandler),
+    ('/count', CountHandler),
+    ('/goodbye', GoodbyeHandler)
+], debug=True)
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <pre><code class="language-python">
+app = webapp2.WSGIApplication([
+    ('/', MainHandler)
+    ('/count', CountHandler),
+    ('/goodbye', GoodbyeHandler)
+], debug=True)
+            </code></pre>
+            </div>
+            <div class="fragment">
+            <p>Refresh the page <a href="http://localhost:9080">http://localhost:9080</a></p>
+            </div>
+        </section>
+
+        <section>
+          <img src="images/BrowserWithServerError01.png" alt="screenshot of Chrome browser showing a server error 500">
+        </section>
+
+        <section>
+            <h3>Logging</h3>
+            <h3>to the</h3>
+            <h3>Rescue</h3>
+        </section>
+
+        <section>
+          <img src="images/GoogleAppEngineLauncher03.png" alt="screenshot of GoogleAppEngineLauncher log empty">
+        </section>
+
+        <section>
+          <img src="images/GoogleAppEngineLauncher04.png" alt="screenshot of GoogleAppEngineLauncher log with syntax error">
+        </section>
 
         <section>
             <h1>END</h1>
