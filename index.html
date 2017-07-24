@@ -291,6 +291,156 @@ app = webapp2.WSGIApplication([
         </section>
 
         <section>
+            <h2>Static</h2>
+            <h2>Content</h2>
+        </section>
+
+        <section>
+            <h3>app.yaml</h3>
+            <div class="fragment">
+            <pre><code class="language-yaml">
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: .*
+  script: main.app
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>app.yaml</h3>
+            <div class="fragment">
+            <pre><code class="language-yaml">
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+            </code></pre>
+            </div>
+
+            <div class="fragment">
+            <pre><code class="language-yaml">
+- url: /resources
+  static_dir: static_folder
+            </code></pre>
+            </div>
+
+            <div class="fragment">
+            <pre><code class="language-yaml">
+- url: .*
+  script: main.app
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h1>Exercise!</h1>
+        </section>
+
+        <section>
+            <h3>You Do</h3>
+            <p>Download File</p>
+            <ul>
+                <li>create dir 'static_folder'
+                <li>download 'cupcake.png'
+                <li><a href="https://openclipart.org/detail/279101/cupcake">https://openclipart.org/detail/279101/cupcake</a>
+                <li>save it in 'static_folder'
+            </ul>
+        </section>
+
+        <section>
+            <h3>You Do</h3>
+            <p>Modify the Code</p>
+            <ul>
+                <li>app.yaml
+                <ul>
+                    <li>Add url: /resources
+                    <li>Add static_dir: static_folder
+                </ul>
+                <li>Open the page <a href="http://localhost:8080/resources/cupcake.png">http://localhost:8080/resources/cupcake.png</a>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Exercise!</h1>
+        </section>
+
+        <section>
+            <h2>Order</h2>
+            <h2>Matters!</h2>
+        </section>
+
+        <section>
+            <h3>app.yaml</h3>
+            <div class="fragment">
+            <pre><code class="language-yaml">
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+            </code></pre>
+            </div>
+
+            <div class="fragment">
+            <pre><code class="language-yaml">
+- url: /resources
+  static_dir: static_folder
+            </code></pre>
+            </div>
+
+            <div class="fragment">
+            <pre><code class="language-yaml">
+- url: .*
+  script: main.app
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>app.yaml</h3>
+            <div class="fragment">
+            <pre><code class="language-yaml">
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+            </code></pre>
+            </div>
+
+            <div class="fragment">
+            <pre><code class="language-yaml">
+- url: .*
+  script: main.app
+            </code></pre>
+            </div>
+
+            <div class="fragment">
+            <pre><code class="language-yaml">
+- url: /resources
+  static_dir: static_folder
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>You Do</h3>
+            <p>Modify the Code</p>
+            <ul>
+                <li>app.yaml
+                <ul>
+                    <li>Move  'url: /resources' paragraph
+                    <li>After 'url: .*' paragraph
+                </ul>
+                <li>Refresh the page <a href="http://localhost:8080/resources/cupcake.png">http://localhost:8080/resources/cupcake.png</a>
+                <li>Get a 404?
+            </ul>
+        </section>
+
+
+        <section>
             <h1>END</h1>
         </section>
 
